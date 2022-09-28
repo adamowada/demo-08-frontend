@@ -22,7 +22,9 @@ class Main extends React.Component {
       const API = process.env.REACT_APP_API_URL;
       const url = `${API}/photos`;
       const response = await axios.get(url, {
-        params: { searchQuery: this.state.searchQuery },
+        params: {
+          searchQuery: this.state.searchQuery,
+        }
       });
       this.setState({ photos: response.data });
     } catch (err) {
@@ -31,6 +33,7 @@ class Main extends React.Component {
   };
 
   render() {
+    console.log(this.state);
     return (
       <>
         <Form onSubmit={this.handleSubmit}>
